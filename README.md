@@ -20,9 +20,9 @@ This repository is designed to help users understand and implement pruning withi
 
 ____________________________________________________________________________________________
 ## Run
-Firstly, Download pretrained VGG16 frome here [Download](https://drive.google.com/file/d/1XFD5oe5QH_09lE4C-7yMIJ8O6OflPKOX/view?usp=sharing)
+Firstly, Download pretrained VGG16 frome here [Download](https://drive.google.com/file/d/1XFD5oe5QH_09lE4C-7yMIJ8O6OflPKOX/view?usp=sharing) and Run below code
 
-and Run below code
+
 
 For Sigle GPU
 <pre>
