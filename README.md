@@ -29,6 +29,7 @@ For Sigle GPU
 python main.py --dataset "CIFAR10 CIFAR... " --data_path "path_to_data" --pretrained "path_to_pretrained_model" --device cuda --model vgg16 
 </pre>
 
+  
 For Multi GPU
 <pre>
 torchrun --nnodes="number_of_nodes" --nproc_per_node="number_of_processes_per_node" main.py --dataset "CIFAR10 CIFAR... " --data_path "path_to_data" --pretrained "path_to_pretrained_model" --device cuda --model vgg16 --distributed 
