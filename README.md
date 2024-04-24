@@ -1,7 +1,5 @@
 # Basic Pruning with Pytorch
-This repository offers a PyTorch reimplementation of a commonly used and practical method for pruning deep neural networks: magnitude pruning with granularity at the channel level. Our implementation, while inspired by foundational theory from the literature, is uniquely adapted for practical applications.
-
-Reference: [Pruning Convolutional Neural Networks for Resource Efficient Inference](https://arxiv.org/abs/1611.06440) by Pavlo Molchanov et al.
+This repository offers a PyTorch reimplementation of a commonly used and practical method for pruning deep neural networks: magnitude pruning with granularity at the channel level. Our implementation is inspired by [Pruning Filters for Efficient ConvNets](https://arxiv.org/abs/1608.08710), although it is not an exact replication.
 
 ## Features
 - **Granularity**: Implements filter-wise pruning.
