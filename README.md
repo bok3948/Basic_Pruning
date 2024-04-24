@@ -19,7 +19,7 @@ ________________________________________________________________________________
 ## Run
 Firstly, Download pretrained VGG16 frome here [Download](https://drive.google.com/file/d/1XFD5oe5QH_09lE4C-7yMIJ8O6OflPKOX/view?usp=sharing) and Run below code
 
-
+![Example Image](/images/acc_prune_trade_off.png "Example Image Titl")
 
 For Sigle GPU
 <pre>
