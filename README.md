@@ -20,13 +20,14 @@ This repository is designed to help users understand and implement pruning withi
 - **ONNX**: 1.16.0
 - **ONNX Runtime**: 1.17.1
 
-## Usage Instructions
+____________________________________________________________________________________________
+## Run
 <pre>
 torchrun --nnodes=<number_of_nodes> --nproc_per_node=<number_of_processes_per_node> main.py --dataset "CIFAR10 CIFAR... " --data_path "<path_to_data>" --pretrained "path_to_pretrained_model" --device cuda --model vgg16 --distributed 
 </pre>
 
 
-Modle trained with CIFAR10 and calibrate with CIFAR10.
+Modle trained with CIFAR10.
 | Model Name           | Accuracy (%) | Size (MB) | Latency (ms) | Checkpoint |
 |----------------------|--------------|-----------|--------------|------------|
 | pytorch_vgg16  | 73.66        | 44.98     | 16.3784      |[Download](https://drive.google.com/file/d/1DXdomOlWoPvT2DKW6_r9tq9v2rH8y_00/view?usp=sharing) |
