@@ -5,8 +5,8 @@ This repository offers a PyTorch reimplementation of a commonly used and practic
 - **Granularity**: Implements filter-wise pruning.
 - **Importance Criterion**: Utilizes the mean of the L1 norm across filters.
 - **Adaptive Pruning Ratios**: Chooses pruning ratios per layer adaptively.
-- **Pruning Schedule**: Supports iterative pruning.
-- **Scope**: Focuses on global pruning across the network.
+- **Pruning Schedule**: iterative pruning.
+- **Scope**: Focuses on global pruning 
 
 ## Goals
 This repository is designed to help users understand and implement pruning within the PyTorch framework. It provides easy-to-understand code, demonstrations of model size reduction and speed increase.
