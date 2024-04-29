@@ -1,6 +1,18 @@
 # Basic Pruning for CNN with Pytorch
 This repository offers a PyTorch reimplementation of a commonly used and practical method for pruning deep neural networks: magnitude pruning with granularity at the channel level. Our implementation is inspired by [Pruning Filters for Efficient ConvNets](https://arxiv.org/abs/1608.08710), although it is not an exact replication. We differ as we use global pruning and prune also outter layers not only inner layer when prune ResNet. As a results, Our implementation superior than paper results. 
 
+
+This table is comparision with paper "Pruning Filters for Efficient ConvNets".
+| Model Name                    | ACC1 (%) | Remain Weights (%) | #Parameters (M) |
+|-------------------------------|----------|--------------------|---------|-----------------|
+| resnet34              | 73.23    | 100.00            | 21.6            |
+| resnet34_pruned_A     | 72.56    | 92.4             | 19.9            |
+| resnet34_pruned_B     | 72.17    | 89.2              | 19.3            |
+| resnet34_pruned_C     | 72.48    | 92.8              | 20.1            |
+| resnet34 (Ours)       | 86.66    | 100.00             |21.28           |
+| **resnet34_pruned (Ours)**    | **86.53**| **30.32**          | **5.65**       |
+
+
 ![Example Image](/images/acc_prune_trade_off.png "Example Image Titl")
 
 ## Features
@@ -32,7 +44,7 @@ torchrun --nnodes="number_of_nodes" --nproc_per_node="number_of_processes_per_no
 </pre>
 
 
-Modle trained with CIFAR10.
+Modle trained with CIFAR10. our Results Flop calculated with input size 1x3x32x32.
 | Model Name                   | Accuracy (%) | #Parameters (M) | MFLOPs | Size (MB) | Latency (ms) | Checkpoint | Args |
 |------------------------------|--------------|-----------------|--------|-----------|--------------|------------|------|
 | pytorch_resnet18             | 86.42        | 11.18           | 37.12  | 44.8      | 3.1154       | [Download](https://drive.google.com/file/d/1iR6WdiGQ1ceWspa_jppUvklgK39k13NH/view?usp=sharing) |  None    |
