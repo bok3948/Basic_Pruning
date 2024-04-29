@@ -5,17 +5,6 @@ This repository offers a PyTorch reimplementation of a commonly used and practic
 
 This table is comparison with paper 'Pruning Filters for Efficient ConvNets'.
 
-| Model Name                    | ACC1 (%) | Remain Weights (%) | #Parameters (M) |
-|-------------------------------|----------|--------------------|-----------------|
-| resnet34 (paper)                     | 73.23    | 100.00             | 21.6            |
-| resnet34_pruned_A (paper)             | 72.56    | 92.4               | 19.9            |
-| resnet34_pruned_B (paper)            | 72.17    | 89.2               | 19.3            |
-| resnet34_pruned_C (paper)            | 72.48    | 92.8               | 20.1            |
-| resnet34 (Ours)               | 86.66    | 100.00             | 21.28           |
-| **resnet34_pruned (Ours)**    | **86.53**| **30.32**          | **5.65**        |
-
-
-
 ![Example Image](/images/acc_prune_trade_off.png "Example Image Titl")
 
 ## Features
