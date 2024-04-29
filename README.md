@@ -19,7 +19,6 @@ This repository is designed to help users understand and implement pruning withi
 
 ____________________________________________________________________________________________
 ## Run
-![Example Image](/images/acc_prune_trade_off.png "Example Image Titl")
 
 For Sigle GPU
 <pre>
