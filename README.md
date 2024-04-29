@@ -12,6 +12,18 @@ This table is comparision with paper "Pruning Filters for Efficient ConvNets".
 | resnet34 (Ours)       | 86.66    | 100.00             |21.28           |
 | **resnet34_pruned (Ours)**    | **86.53**| **30.32**          | **5.65**       |
 
+"This table is comparison with paper 'Pruning Filters for Efficient ConvNets'."
+
+| Model Name                    | ACC1 (%) | Remain Weights (%) | #Parameters (M) |
+|-------------------------------|----------|--------------------|-----------------|
+| resnet34                      | 73.23    | 100.00             | 21.6            |
+| resnet34_pruned_A             | 72.56    | 92.4               | 19.9            |
+| resnet34_pruned_B             | 72.17    | 89.2               | 19.3            |
+| resnet34_pruned_C             | 72.48    | 92.8               | 20.1            |
+| resnet34 (Ours)               | 86.66    | 100.00             | 21.28           |
+| **resnet34_pruned (Ours)**    | **86.53**| **30.32**          | **5.65**        |
+
+
 
 ![Example Image](/images/acc_prune_trade_off.png "Example Image Titl")
 
