@@ -1,8 +1,5 @@
 # Basic Pruning for CNN with Pytorch
-This repository offers a PyTorch reimplementation of a commonly used and practical method for pruning deep neural networks: magnitude pruning with granularity at the channel level. Our implementation is inspired by [Pruning Filters for Efficient ConvNets](https://arxiv.org/abs/1608.08710), it is not a direct replication. Key differences include:
-
-- **Pruning Outer layers of ResNet Blocks**: Unlike the original approach, which focuses predominantly on inner layers, our method implements global pruning across all layers, including outer ones. Suggested from [Neural Network Pruning with Residual-Connections and Limited-Data](https://openaccess.thecvf.com/content_CVPR_2020/papers/Luo_Neural_Network_Pruning_With_Residual-Connections_and_Limited-Data_CVPR_2020_paper.pdf)
-
+This repository offers a PyTorch reimplementation of a commonly used and practical method for pruning deep neural networks: magnitude pruning with granularity at the channel level. Our implementation is inspired by [Pruning Filters for Efficient ConvNets](https://arxiv.org/abs/1608.08710), it is not a direct replication.
 
 ![Example Image](/images/acc_prune_trade_off.png "Example Image Titl")
 
