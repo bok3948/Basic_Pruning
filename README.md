@@ -3,6 +3,16 @@ This repository offers a PyTorch reimplementation of a commonly used and practic
 
 - **Pruning Outer layers of ResNet Blocks**: Unlike the original approach, which focuses predominantly on inner layers, our method implements global pruning across all layers, including outer ones. Suggested from [Neural Network Pruning with Residual-Connections and Limited-Data](https://openaccess.thecvf.com/content_CVPR_2020/papers/Luo_Neural_Network_Pruning_With_Residual-Connections_and_Limited-Data_CVPR_2020_paper.pdf)
 
+"This table is comparison with paper 'Pruning Filters for Efficient ConvNets'."
+
+| Model Name                    | ACC Change | Remain Weights (%) |
+|-------------------------------|----------|--------------------|
+| resnet56_pruned_A             | +0.06    | 89.6               | 
+| resnet56_pruned_B             | +0.02    | 72.4               |
+| **resnet50_pruned (Ours)**    | **+0.64**| **77.4**           | 
+
+
+
 ![Example Image](/images/acc_prune_trade_off.png "Example Image Titl")
 
 ## Features
