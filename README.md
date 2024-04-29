@@ -34,8 +34,14 @@ torchrun --nnodes="number_of_nodes" --nproc_per_node="number_of_processes_per_no
 
 
 Modle trained with CIFAR10.
-| Model Name           | Accuracy (%) | Size (MB) | Latency (ms) | Checkpoint |
-|----------------------|--------------|-----------|--------------|------------|
-| pytorch_vgg16  | 73.66        | 44.98     | 16.3784      |[Download](https://drive.google.com/file/d/1XFD5oe5QH_09lE4C-7yMIJ8O6OflPKOX/view?usp=sharing) |
-| pytorch_vgg16_pruned  | ??      | ??     | ??     |[Download](https://drive.google.com/file/d/1B_cR5QlXdnpzGfaQcAGtFjV0d3kLctcJ/view?usp=sharing) |
+| Model Name                   | Accuracy (%) | #Parameters (M) | MFLOPs | Size (MB) | Latency (ms) | Checkpoint | Args |
+|------------------------------|--------------|-----------------|--------|-----------|--------------|------------|------|
+| pytorch_resnet18             | 86.42        | 11.18           | 37.12  | 44.8      | 3.1154       | [Download](https://drive.google.com/file/d/1iR6WdiGQ1ceWspa_jppUvklgK39k13NH/view?usp=sharing) |  None    |
+| pytorch_pruned_resnet18      | 85.98        | 3.00            | 28.94  | 12.07     | 1.9616       | [Download](https://drive.google.com/file/d/1Gz0sbNiMQhzRJ7GmypVDSJ7sCvsg8-h0/view?usp=sharing) | [Download](https://drive.google.com/file/d/1my4jlBBzItb1noBnwAehYnQUotnlCypo/view?usp=sharing)  |
+| pytorch_resnet34             | 86.66        | 21.28           | 74.92  | 85.29     | 4.505        | [Download](https://drive.google.com/file/d/1_eipZl72oBA0vBYIVwNoX1IZj5HHWk_U/view?usp=sharing) |  None  |
+| pytorch_pruned_resnet34      | 86.53        | 5.65            | 50.99  | 22.73     | 2.6352       | [Download](https://drive.google.com/file/d/1EDMLssNLoS3Nz5NEqouHER04TiiAz9Xo/view?usp=sharing) |   [Download](https://drive.google.com/file/d/1mmaQ7hxKyD9bz_44sp4MV4xgaa9FvH02/view?usp=sharing)    |
+| pytorch_resnet50             | 87.27        | 23.52           | 83.89  | 94.41     | 5.4016       | [Download](https://drive.google.com/file/d/12UjAI5H0haUCt-JBoQO77ADMfTbdIfGh/view?usp=sharing) |  None   |
+| pytorch_pruned_resnet50      | 85.70        | 6.31            | 52.88  | 25.48     | 3.9642       | [Download](https://drive.google.com/file/d/1r5TXTT_3_u8wF-e13g2PmXcFpSkniJtN/view?usp=sharing) |   [Download](https://drive.google.com/file/d/1D71iP-Euhgszu1C5eBkfd0Rr14ShpJDY/view?usp=sharing)    |
+
+
 
