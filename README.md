@@ -29,7 +29,7 @@ torchrun --nnodes="number_of_nodes" --nproc_per_node="number_of_processes_per_no
 </pre>
 
 
-Modle trained with CIFAR10. our Results Flop calculated with input size 1x3x32x32.
+Modle trained with CIFAR10. our Results calculated with input size 1x3x32x32.
 | Model Name                   | Accuracy (%) | #Parameters (M) | MFLOPs | Size (MB) | Latency (ms) | Checkpoint | Args |
 |------------------------------|--------------|-----------------|--------|-----------|--------------|------------|------|
 | pytorch_resnet18             | 86.42        | 11.18           | 37.12  | 44.8      | 3.1154       | [Download](https://drive.google.com/file/d/1iR6WdiGQ1ceWspa_jppUvklgK39k13NH/view?usp=sharing) |  None    |
