@@ -1,15 +1,11 @@
 # Basic Pruning for CNN with Pytorch
 This repository offers a PyTorch reimplementation of a commonly used and practical method for pruning deep neural networks: magnitude pruning with granularity at the channel level. Our implementation is inspired by [Pruning Filters for Efficient ConvNets](https://arxiv.org/abs/1608.08710), although it is not an exact replication. We differ as we use global pruning and prune also outter layers not only inner layer when prune ResNet. As a results, Our implementation superior than paper results. 
 
-This repository provides a PyTorch reimplementation of a widely applied and practical technique for pruning deep neural networks: magnitude pruning at the channel level. While our implementation draws inspiration from the seminal paper "Pruning Filters for Efficient ConvNets," it is not a direct replication. Key differences include:
+This repository provides a PyTorch reimplementation of a widely applied and practical technique for pruning deep neural networks: magnitude pruning at the channel level. While our implementation draws inspiration from the paper "Pruning Filters for Efficient ConvNets," it is not a direct replication. Key differences include:
 
 - **Global Pruning Strategy**: Unlike the original approach, which focuses predominantly on inner layers, our method implements global pruning across all layers, including outer ones. This approach ensures a uniform reduction in complexity throughout the network.
 
-- **Enhanced Scope**: We extend the pruning process to encompass both inner and outer layers of ResNet architectures, providing a more comprehensive reduction in model complexity. This broader scope enhances the applicability of our method across different network architectures.
-
--**Global Pruning Strategy: Unlike the original approach, which focuses predominantly on inner layers, our method implements global pruning across all layers, including outer ones.
--**Pruning Outerlayer of ResNet Blocks: We extend the pruning process to encompass both inner and outer layers of ResNet architectures, providing a more comprehensive reduction in model complexity.
-
+- **Pruning Outerlayer of ResNet Blocks**: We extend the pruning process to encompass both inner and outer layers of ResNet architectures, providing a more comprehensive reduction in model complexity.
 
 This table is comparison with paper 'Pruning Filters for Efficient ConvNets'.
 
