@@ -3,6 +3,10 @@ This repository offers a PyTorch reimplementation of a commonly used and practic
 
 This repository provides a PyTorch reimplementation of a widely applied and practical technique for pruning deep neural networks: magnitude pruning at the channel level. While our implementation draws inspiration from the seminal paper "Pruning Filters for Efficient ConvNets," it is not a direct replication. Key differences include:
 
+- **Global Pruning Strategy**: Unlike the original approach, which focuses predominantly on inner layers, our method implements global pruning across all layers, including outer ones. This approach ensures a uniform reduction in complexity throughout the network.
+
+- **Enhanced Scope**: We extend the pruning process to encompass both inner and outer layers of ResNet architectures, providing a more comprehensive reduction in model complexity. This broader scope enhances the applicability of our method across different network architectures.
+
 -**Global Pruning Strategy: Unlike the original approach, which focuses predominantly on inner layers, our method implements global pruning across all layers, including outer ones.
 -**Pruning Outerlayer of ResNet Blocks: We extend the pruning process to encompass both inner and outer layers of ResNet architectures, providing a more comprehensive reduction in model complexity.
 
