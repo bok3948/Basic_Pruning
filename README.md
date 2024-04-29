@@ -1,5 +1,7 @@
 # Basic Pruning for CNN with Pytorch
-This repository offers a PyTorch reimplementation of a commonly used and practical method for pruning deep neural networks: magnitude pruning with granularity at the channel level. Our implementation is inspired by [Pruning Filters for Efficient ConvNets](https://arxiv.org/abs/1608.08710), although it is not an exact replication.
+This repository offers a PyTorch reimplementation of a commonly used and practical method for pruning deep neural networks: magnitude pruning with granularity at the channel level. Our implementation is inspired by [Pruning Filters for Efficient ConvNets](https://arxiv.org/abs/1608.08710), although it is not an exact replication. We differ as we use global pruning and prune also outter layers not only inner layer when prune ResNet. As a results, Our implementation superior than paper results. 
+
+![Example Image](/images/acc_prune_trade_off.png "Example Image Titl")
 
 ## Features
 - **Granularity**: Implements filter-wise pruning.
@@ -17,13 +19,11 @@ This repository is designed to help users understand and implement pruning withi
 
 ____________________________________________________________________________________________
 ## Run
-Firstly, Download pretrained VGG16 frome here [Download](https://drive.google.com/file/d/1XFD5oe5QH_09lE4C-7yMIJ8O6OflPKOX/view?usp=sharing) and Run below code
-
 ![Example Image](/images/acc_prune_trade_off.png "Example Image Titl")
 
 For Sigle GPU
 <pre>
-python main.py --dataset "CIFAR10 CIFAR... " --data_path "path_to_data" --pretrained "path_to_pretrained_model" --device cuda --model vgg16 
+python main.py --dataset CIFAR10 --data_path "path_to_data" --pretrained "path_to_pretrained_model" --device cuda --model resnet18 --pruning_ratio 0.7 --per_iter_pruning_ratio 0.05 --min_ratio 0.01
 </pre>
 
   
