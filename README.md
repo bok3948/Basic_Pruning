@@ -3,7 +3,7 @@ This repository offers a PyTorch reimplementation of a commonly used and practic
 
 - **Global Pruning Strategy**: Unlike the original approach, which focuses predominantly on inner layers, our method implements global pruning across all layers, including outer ones. This approach ensures a uniform reduction in complexity throughout the network.
 
-- **Pruning Outerlayer of ResNet Blocks**: We extend the pruning process to encompass both inner and outer layers of ResNet architectures, providing a more comprehensive reduction in model complexity.
+- **Pruning Outer layers of ResNet Blocks**: We extend the pruning process to encompass both inner and outer layers of ResNet architectures, providing a more comprehensive reduction in model complexity.
 
 This table is comparison with paper 'Pruning Filters for Efficient ConvNets'.
 
