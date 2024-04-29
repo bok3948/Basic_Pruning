@@ -25,9 +25,6 @@ This table is comparison with paper 'Pruning Filters for Efficient ConvNets'.
 - **Pruning Schedule**: iterative pruning.
 - **Scope**: Focuses on global pruning 
 
-## Goals
-This repository is designed to help users understand and implement pruning within the PyTorch framework. It provides easy-to-understand code, demonstrations of model size reduction and speed increase.
-
 ## Requirements
 - **PyTorch**: 2.2.1
 - **timm**: 0.9.12
