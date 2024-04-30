@@ -17,7 +17,7 @@ This repository offers a PyTorch reimplementation of a commonly used and practic
 ____________________________________________________________________________________________
 ## Run
 
-For Sigle GPU
+For Sigle GPU if you wants to use Knowledge Distillation for futher improvements. use arguments --do_KD
 <pre>
 python main.py --dataset CIFAR10 --data_path "path_to_data" --pretrained "path_to_pretrained_model" --device cuda --model resnet18 --pruning_ratio 0.7 --per_iter_pruning_ratio 0.05 --min_ratio 0.01
 </pre>
