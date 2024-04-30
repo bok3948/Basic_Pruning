@@ -94,9 +94,15 @@ def get_args_parser():
 
     #pruning parameters
     parser.add_argument('--start_iter', default=0, type=int, help='resume from iteration')
-    parser.add_argument('--pruning_ratio', default=0.8, type=float, help='pruning ratio')
+    parser.add_argument('--pruning_ratio', default=0.7, type=float, help='pruning ratio')
     parser.add_argument('--per_iter_pruning_ratio', default=0.05, type=float, help='filters * per_iter_pruning_ratio = filters to be pruned per iter')
     parser.add_argument('--min_ratio', default=0.01, type=float, help='minimum ratio of filters to be pruned')
+
+    #distillation
+    parser.add_argument('--do_KD', action='store_true', default=False,
+                    help='do distillation')
+    parser.add_argument('--KD_loss_weight', type=float, default=1.0)
+    parser.add_argument('--temperature', type=float, default=2.0)
 
     return parser
 
@@ -263,10 +269,16 @@ def main(args):
             model, checkpoint = load_pruned_model(ori_model, args)
 
         model, model_without_ddp = prepare_model(model, args)
+        if args.do_KD:
+            teacher = copy.deepcopy(ori_model)
+            teacher, ori_model_without_ddp = prepare_model(teacher, args)
+        else:
+            teacher = None
 
         del optimizer
         optimizer = create_optimizer(args, model_without_ddp)
         lr_scheduler, _ = create_scheduler(args, optimizer)
+        loss_scaler = torch.cuda.amp.GradScaler()
 
         #resume
         if args.resume:
@@ -282,8 +294,8 @@ def main(args):
                 data_loader_train.sampler.set_epoch(epoch)
 
             train_stats = train_one_epoch(data_loader_train, model, 
-                optimizer, criterion, None, None, device,
-                epoch, None, args
+                optimizer, criterion, loss_scaler, None, device,
+                epoch, None, teacher, args
             )
 
             if lr_scheduler is not None:
