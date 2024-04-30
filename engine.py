@@ -3,15 +3,24 @@ import sys
 from typing import Iterable
 
 import torch
+import torch.nn.functional as F
 
 from timm.utils import accuracy
 import util.misc as misc
 
 
+def get_loss_one_logit(student_logit, teacher_logit, temperature=2.0):
+    t = temperature # distillation temperature
+    return F.kl_div(
+        input=F.log_softmax(student_logit / t, dim=-1),
+        target=F.softmax(teacher_logit / t, dim=-1),
+        reduction="batchmean"
+    ) * (t ** 2)
+
 def train_one_epoch(data_loader: Iterable, model: torch.nn.Module, optimizer: torch.optim.Optimizer, criterion: torch.nn.Module, loss_scaler,
                 lr_scheduler=None, 
                 device=None, epoch=None,
-                log_writer=None, args=None):
+                log_writer=None, teacher=None, args=None):
     model.train()
     metric_logger = misc.MetricLogger(delimiter=" ")
     metric_logger.add_meter('lr', misc.SmoothedValue(window_size=1, fmt='{value:.6f}'))
@@ -19,17 +28,28 @@ def train_one_epoch(data_loader: Iterable, model: torch.nn.Module, optimizer: to
     
     for it, (inputs, labels) in enumerate(metric_logger.log_every(data_loader, args.print_freq, header)):
         inputs, labels = inputs.to(device, non_blocking=True), labels.to(device, non_blocking=True)
-        logits = model(inputs)
+
+        optimizer.zero_grad()
+        with torch.cuda.amp.autocast(True):
+            logits = model(inputs)
         loss = criterion(logits, labels)
+
+        # use distillation
+        if args.do_KD:
+            with torch.no_grad():
+                teacher_output = teacher(inputs)
+            distillation_loss = args.KD_loss_weight * get_loss_one_logit(logits, teacher_output, args.temperature)
+            loss += distillation_loss
 
         loss_value = loss.item()
 
         if not math.isfinite(loss_value):
             print(f"Loss is {loss_value}, stopping training")
             sys.exit(1)
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
+
+        loss_scaler.scale(loss).backward()
+        loss_scaler.step(optimizer)
+        loss_scaler.update()
 
         torch.cuda.synchronize()
         
@@ -55,8 +75,11 @@ def evaluate(data_loader, model, device, args):
     for inputs, labels in metric_logger.log_every(data_loader, args.print_freq, header):
         inputs, labels = inputs.to(device, non_blocking=True), labels.to(device, non_blocking=True)
 
-        #with torch.cuda.amp.autocast():
-        logits = model(inputs)
+        if args.device == 'cuda':
+            with torch.cuda.amp.autocast():
+                logits = model(inputs)
+        else:
+            logits = model(inputs)
 
         acc1, acc5 = accuracy(logits, labels, topk=(1, 5))
 
